@@ -1,0 +1,90 @@
+<!--
+    Author: Jianjun Li
+    Description: Registration for normal user
+-->
+<!DOCTYPE html>
+<html>
+    <head>
+        <!--Include these two links for the navbar to work-->
+        <link rel="stylesheet" type="text/css" href="header.css" >
+        <link rel="stylesheet" href="http://netdna.bootstrapcdn.com/bootstrap/3.0.2/css/bootstrap.min.css">
+        <link rel="stylesheet" href="registration.css">
+        <title>Registration</title>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    </head>
+    <body>
+        <!--Navbar-->
+        <div class="navbar navbar-default navbar-fixed-top">
+            <div class="container">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <a class="navbar-brand" href="#">BayLife</a>
+                </div>
+                <div class="collapse navbar-collapse">
+                    <form class="navbar-form navbar-left" role="search">
+                        <div class="form-group">
+                            <input type="text" class="form-control" placeholder="Search">
+                        </div>
+                        <div class="form-group">
+                            <input type="text" class="form-control" placeholder="Location">
+                        </div>
+                        <button type="submit" class="btn btn-default">Submit</button>
+                    </form>
+                </div><!--/.nav-collapse -->
+            </div>
+        </div>
+        <!--Navbar Ends Here-->
+        <div class="main_frame">
+            <div class="registration">
+                <form class="form-signup" name="signup_form" method="get" action="register.php">
+                    <h2 class="form-signup-heading">Registration</h2>
+                    <p>
+                        <label>First Name</label>
+                        <input type="text" class="form-control" maxlength="20" name="fname" autofocus>
+                    </p>
+
+                    <p>
+                        <label>Last Name</label>
+                        <input type="text" class="form-control" maxlength="20" name="lname">
+                    </p>
+                    <p>
+                        <label>User Name</label>
+                        <input type="text" class="form-control" maxlength="20" name="uname">
+                    </p>
+                    <p>
+                        <label>Email</label>
+                        <input type="email" class="form-control" maxlength="20" name="email">
+                    </p>
+                    <p>
+                        <label>Password</label>
+                        <input type="password" class="form-control" maxlength="20" name="password">
+                    </p>
+                    <p>
+                        <label>Confirm Password</label>
+                        <input type="password" class="form-control" maxlength="20" name="confirmed_password">
+                    </p>
+                    <p>
+                        <button class="btn btn-default">Upload Profile Picture</button>
+                    </p>
+                    <p>
+                        <button type="submit" class="btn btn-lg btn-primary btn-block">Submit</button>
+                    </p>
+                    <p>
+                        By clicking on the "Submit" button, you are agreeing to the <a href="terms_and_conditions.html">"Terms and Conditions"</a>.
+                    </p>
+                </form>
+                <button class="btn btn-default" onclick="window.location = 'login.html';">Already a member? Click here!</button>
+            </div>
+
+            <div class="jumbotron">
+                <h1>BayLife for Business Owners</h1>
+                <p>Trying to list your business on BayLife?</p>
+                <p><button class="btn btn-default" onclick="window.location = 'biz_registration.html';">Business Sign Up Here</button></p>
+            </div>
+        </div>
+    </body>
+</html>

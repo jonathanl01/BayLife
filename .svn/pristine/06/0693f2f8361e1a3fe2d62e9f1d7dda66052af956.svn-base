@@ -1,0 +1,37 @@
+<html>
+    <head>
+        <link rel="stylesheet" type="text/css" href="header.css" >
+        <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.2/css/bootstrap.min.css">
+
+        <link rel = "stylesheet" type = "text/css" href ="css/normalize.css" media ="screen">
+        <link rel = "stylesheet" type = "text/css" href ="css/grid.css" media ="screen">
+        <link rel = "stylesheet" type = "text/css" href ="css/style.css" media ="screen">
+</head>
+
+<body>
+
+  <?php
+    require_once('navbar.php');
+  ?>
+  <div class="container">
+    <br>
+    <H1 class ="grid_12 ">Hotel California</H1>
+
+    <form  action="#" method="post" enctype="multipart/form-data">
+        <label for="file">Images:</label>
+        <input type="file" name="file" id="file"><br>
+        <input type="submit" name="submit" value="Upload Images">
+    </form>
+    <br><br>
+    <div id = "cupcake1" class ="grid_5" style="width: 405px; font-size:80%; text-align:center;" >
+        <img src ="img/new-cupcake-jalapeno.jpg" alt ="Jalapeno so Spicy"  style="padding-bottom:0.5em;" />Jalepeno cake
+    </div>
+    <div id = "cupcake2" class ="grid_5" style="width: 405px; font-size:80%; text-align:center;">
+        <img src ="img/new-cupcake-bacon.jpg" alt ="Bacon me Crazy" style="padding-bottom:0.5em;"/>Bacon crazy
+    </div> 
+    <div id = "cupcake3" class ="grid_5" style="width: 405px; font-size:80%; text-align:center;">
+        <img src ="img/new-cupcake-caramel.jpg" alt ="Caramel me Crazy" style="padding-bottom:0.5em;"/>Caramel 
+    </div>
+  </div>
+</body>
+</html>

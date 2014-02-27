@@ -1,0 +1,87 @@
+<html>
+    <head>
+        <!--Include these two links for the navbar to work-->
+        <link rel="stylesheet" type="text/css" href="header.css" >
+        <link rel="stylesheet" href="http://netdna.bootstrapcdn.com/bootstrap/3.0.2/css/bootstrap.min.css">
+    </head>
+
+    <body>
+
+        <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js">
+        </script>
+        <script>
+            $(document).ready(function() {
+                $("img").hide();
+                $("button").click(function() {
+                    $("img").toggle(500);
+                });
+            });
+        </script>
+
+        <!--Navbar-->
+        <div class="navbar navbar-default navbar-fixed-top">
+            <div class="container">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <a class="navbar-brand" href="#">BayLife</a>
+                </div>
+                <div class="collapse navbar-collapse">
+                    <form class="navbar-form navbar-left" role="search">
+                        <div class="form-group">
+                            <input type="text" class="form-control" placeholder="Search">
+                        </div>
+                        <div class="form-group">
+                            <input type="text" class="form-control" placeholder="Location">
+                        </div>
+                        <button type="submit" class="btn btn-default">Submit</button>
+                    </form>
+                </div><!--/.nav-collapse -->
+            </div>
+        </div>
+
+        <div class="container">
+
+            <div class="text-center">
+                <h1>Use this navbar</h1>
+                <p class="lead">You can also use this as an example for how bootstrap works</p>
+            </div>
+
+        </div><!-- /.container -->
+        <!--Navbar Ends Here-->
+
+        <h1>Hello Steven</h1>
+
+        <p>Testing out our amazon server for CSC 640</p>
+        <p>Box below should return something.</p>
+        <p>This will be the website I'm working on at school</p>
+
+        <form method="get" action="write.php">
+            <input type="text" name="write" placeholder="Your Name Here"/>
+            <input type="submit" name="submitbutton" value="Submit"/>
+        </form>
+
+        <form method="get" action="loginpage.php">
+            <input type="text" name="search" placeholder="Enter City" />
+            <input type="submit" name='searchbutton' value="Search" />
+        </form>
+        
+        <ul>
+            <li><a href="index.html">Homepage</a></li>
+            <li><a href="gallery.html">Gallery</a></li>
+            <li><a href="business.html">Business</a></li>
+            <li><a href="login.html">Login</a></li>
+            <li><a href="registration.html">Registration</a></li>
+            <li><a href="biz_registration.html">Business Registration</a></li>
+        </ul>
+        
+        <button>Cat!</button>
+        <div>
+            <img src='https://lh5.googleusercontent.com/-6ejg37mAaFI/UFFXgocAYtI/AAAAAAAAADM/5niyWNZ7Atk/w422-h633-no/l8KV8.jpg'>
+        </div>
+    </body>
+
+</html>

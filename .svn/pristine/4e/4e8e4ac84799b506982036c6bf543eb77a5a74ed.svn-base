@@ -1,0 +1,68 @@
+<!--
+    Author: Jianjun Li
+    Description: Password Reset
+-->
+<!DOCTYPE html>
+<html>
+    <head>
+        <!--Include these two links for the navbar to work-->
+        <link rel="stylesheet" type="text/css" href="header.css" >
+        <link rel="stylesheet" href="http://netdna.bootstrapcdn.com/bootstrap/3.0.2/css/bootstrap.min.css">
+        <link rel="stylesheet" href="forgot_page.css">
+        <title>Forgot Password</title>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <style>
+            login {text-align:center}
+        </style>
+    </head>
+    <body>
+        <!--Navbar-->
+        <div class="navbar navbar-default navbar-fixed-top">
+            <div class="container">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <a class="navbar-brand" href="#">BayLife</a>
+                </div>
+                <div class="collapse navbar-collapse">
+                    <form class="navbar-form navbar-left" role="search">
+                        <div class="form-group">
+                            <input type="text" class="form-control" placeholder="Search">
+                        </div>
+                        <div class="form-group">
+                            <input type="text" class="form-control" placeholder="Location">
+                        </div>
+                        <button type="submit" class="btn btn-default">Submit</button>
+                    </form>
+                </div><!--/.nav-collapse -->
+            </div>
+        </div>
+        <!--Navbar Ends Here-->
+            <div class="password-page">
+                <form class="form-reset" name="password-reset-form">
+                    <h2 class="form-reset-heading">Password Reset</h2>
+                    <p>
+                        <label>User Name</label>
+                        <input type="text" class="form-control" maxlength="20" name="uname" autofocus>
+                    </p>
+
+                    <p>
+                        --OR--
+                    </p>
+                    <p>
+                        <label>Email</label>
+                        <input type="email" class="form-control" maxlength="20" name="email">
+                    </p>
+                    <p>
+                        <button class="btn btn-lg btn-primary btn-block">Submit</button>
+                    </p>
+                </form>
+                <button class="btn btn-default" onclick="window.location = 'login.html';">Remember your password? Click here!</button>
+                <p><br><a href="forgot_user_name.html">Forgot your user name?</a></p>
+            </div>
+
+    </body>
+</html>

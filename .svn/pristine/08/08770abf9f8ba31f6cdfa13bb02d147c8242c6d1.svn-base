@@ -1,0 +1,34 @@
+/* 
+    Document   : forgot_page
+    Created on : Nov 15, 2013, 1:40:35 AM
+    Author     : Jianjun
+    Description:
+        Purpose of the stylesheet follows.
+*/
+
+/* 
+    Document   : forgot_password
+    Created on : Nov 15, 2013, 01:20:12 AM
+    Author     : Jianjun
+    Description:
+        Purpose of the stylesheet follows.
+*/
+
+.password-page{
+    padding-top: 50px;
+    padding-left: 50px;
+    max-width: 600px;
+}
+.form-reset .form-reset-heading{
+    padding-bottom: 30px;
+}
+
+.form-reset p{
+    padding-bottom: 15px;
+
+}
+
+.form-reset .form-control{
+    float: right;
+    max-width: 400px;
+}

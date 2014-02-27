@@ -1,0 +1,118 @@
+<?php
+$conection = mysql_connect("sfsuswe.com", "f13g07", "640group7");
+if (!$conection) {
+    die("Database connection failed:" . mysql_error());
+}
+
+$database = mysql_select_db('student_f13g07', $conection);
+if (!$database) {
+    die("Database selection failed:" . mysql_error());
+}
+
+$city = $_POST['search'];
+
+$query = "SELECT * FROM Business_Table where name Like '%" . $city . "%'"; // where city = '$city'"; //You don't need a ; like you do in SQL
+$result = mysql_query($query) or die($myQuery . "<br/><br/>" . mysql_error());
+
+$row = mysql_fetch_array($result);
+$total_rows = mysql_num_rows($result);
+$max_results = 5;
+$button_count = ceil($total_rows / $max_results);
+$count = 0;
+mysql_close();
+?>
+
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Results</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <!-- Bootstrap -->
+        <link href="/bootstrap-3.0.2/dist/css/bootstrap.min.css" rel="stylesheet">
+        <link rel="stylesheet" href="http://netdna.bootstrapcdn.com/bootstrap/3.0.2/css/bootstrap.min.css">
+
+        <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+        <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+        <!--[if lt IE 9]>
+          <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+          <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+        <![endif]-->
+        <!--
+        <link type="text/css" rel="stylesheet" href="m3.css" />
+        -->
+    </head>
+    <body>
+
+        <?php
+        include('navbar.php');
+        ?>
+        <div class="container ">   
+            <br><br><br>
+            <div align="center">
+                <h4><-- Showing <?php
+                    if ($total_rows < $max_results) {
+                        print $total_rows;
+                    } else {
+                        print $max_results;
+                    }
+                    ?> Out Of <?php print $total_rows; ?> Results --></h4>
+            </div>
+
+
+            <?php $i = 0;
+            for ($j = 0; $j < $button_count; $j++) {
+                print("<a id=\"page".($j+1)."\"></a>");              
+          
+                if ($max_results>$total_rows) {
+                    $max_results = $total_rows;
+                } 
+                for (; $i < $max_results; $i++) {
+                    ?>
+                    <div class="row">
+                        <div class="col-sm-6 col-md-12">
+                            <div class="thumbnail padding2">
+                                <h4 style="text-align:left;float:left;"><?= $i + 1 ?>. <a href="business.php"><?= $row['name'] ?></a> </h4>
+                                <h4 style="text-align:left;float:right;">    User rating: <?= $row['rating'] ?> /10</h4>
+                                <hr COLOR="green" WIDTH="0%">
+                                <a href="business.php"><img src=<?=$row['img'] ?> width="200" height="150" style="width:200px;height:130px;padding-right:10px;padding-bottom:3px; " align="left" class="img-rounded" ></a>
+                                <div class="caption">
+                                    <div class="padding1">
+                                        <h3>     </h3>
+                                        <p style="text-align:left;float:left;" ><?= $row['street'] ?><br> <?= $row['city'] ?><br> <?= $row['phone'] ?><br><br></p>
+                                        <p style="margin-left:500px;" >Preview comments from users<br><br><br></p>
+                                        <hr COLOR="green" WIDTH="0%"/>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <?php
+                    $row = mysql_fetch_array($result);
+                   
+                }
+                $max_results+=5;
+                
+            }
+            ?>
+
+
+
+            <div align="center">
+                <ul class="pagination">
+                    <li><a href="#">&laquo;</a></li>
+                    <?php
+                    for ($i = 0; $i < $button_count; $i++) {
+                        print"<li><a href=\"results.php#page".($i+1)."\">" . ($i + 1) . "</a></li>";
+                    }
+                    ?>
+                    <li><a href="#">&raquo;</a></li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+        <script src="https://code.jquery.com/jquery.js"></script>
+        <!-- Include all compiled plugins (below), or include individual files as needed -->
+        <script src="/bootstrap-3.0.2/dist/js/bootstrap.min.js"></script>
+    </body>
+</html>

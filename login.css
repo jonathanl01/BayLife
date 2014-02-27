@@ -1,0 +1,43 @@
+/* 
+    Document   : login
+    Created on : Nov 15, 2013, 9:07:02 PM
+    Author     : Jianjun
+    Description:
+        Purpose of the stylesheet follows.
+*/
+
+.login{
+    padding-top: 150px;
+    max-width: 450px;
+    margin: 0 auto;
+}
+
+.form-signin .form-signin-heading{
+    padding-bottom: 30px;
+}
+.form-signin p{
+    padding-bottom: 15px;
+}
+.form-signin #login_btn{
+    position: relative;
+    left: 160px;
+    font-size: inherit;
+    max-width: 100px;
+    max-height: 34px;
+    float: right;
+}
+
+.form-signin .form-control{
+    border-top-left-radius: 0;
+    border-top-right-radius: 0;
+    position: relative;
+    right: 150px;
+    max-width: 180px;
+    float: right;
+}
+
+.forgot_statements{
+    float: right;
+    position: relative;
+    right: 180px;
+}

@@ -1,0 +1,165 @@
+<!--
+To change this template, choose Tools | Templates
+and open the template in the editor.
+-->
+<?php
+$biz_id = $_REQUEST['biz_id'];
+?>
+<!DOCTYPE html>
+    <head>
+        <title>Business Info Page</title>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        
+        <!--Include these two links for the navbar to work-->
+        <link rel="stylesheet" type="text/css" href="header.css" >
+        <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.2/css/bootstrap.min.css">
+        <link rel="stylesheet" type="text/css" href="business_page.css" >
+        <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+        <script src="http://maps.googleapis.com/maps/api/js?key=AIzaSyDY0kkJiTPVd2U7aTOAwhc9ySH6oHxOIYM&sensor=true"></script>
+        <script src="classes/map.js"></script>
+    </head>
+    <body onload="initialize();">
+        <!-- include navbar-->
+        <!-- 
+        To use google maps:
+        1. Use "<div id="map" style= "width:300px; height:300px;"></div>" to place google maps anywhere. 
+        2. Use "var marker_pos = new google.maps.LatLng(biz.lat, biz.lng);" Where biz.lat and biz.lng are from the database.
+        3. Use "var title = biz.name;" or any other string. (such as the address)
+        4. Use "var maker = add_marker(location, title)" to add a maker.
+        5. Marker should appear on the map.
+        -->
+       <?php
+       require_once('navbar.php');
+       //echo "<h1>".$biz_id."</h1>";
+       ?>
+    
+       <?php
+        $conection = mysql_connect("sfsuswe.com", "f13g07", "640group7");
+        if (!$conection) {
+        die("Database connection failed:" . mysql_error());
+        }
+        $database = mysql_select_db('student_f13g07', $conection);
+        if (!$database) {
+            die("Database selection failed:" . mysql_error());
+        }
+?>
+<?php
+    //Submit a review
+    
+    if (isset($_POST['submit_review'])) {
+        $cust_id = $_SESSION['cust_id'];
+        $rating = $_POST['ratebox'];
+        $review = $_POST['reviewtext'];
+        $querr = "INSERT INTO Review_Table (cust_id, biz_id, review_description, rating) VALUES ( '$cust_id', '$biz_id', '$review', '$rating')";
+        mysql_query($querr);                                  
+    }
+?>
+<?php   
+     //get the specific businesses information from the database
+     $bizquery= "SELECT * FROM Business_Table WHERE biz_id='$biz_id'";
+     $biz=mysql_query($bizquery);
+     $biz_info = mysql_fetch_assoc($biz);
+          
+     //average the ratings
+     $ratingquery= "SELECT * FROM Review_Table WHERE biz_id='$biz_id'";
+     $reviews=mysql_query($ratingquery);
+     $avgrating=0;
+     $counter=0;
+     while($review=mysql_fetch_array($reviews)){
+         $avgrating+=$review['rating'];
+         $counter+=1;
+     }
+     if($counter!=0){
+         $avgrating=$avgrating/$counter;
+     }
+     
+     echo "<!-- Business Information -->
+    <div align='center'>
+    <div class=\"container\">
+        <table id=\"businessheadingtable\" border=\"0\">
+            <thead id=\"businessheading\">
+                <tr>
+                    <th>
+                        <h2 id=\"businessname\">".$biz_info['name']."</h2>
+                    </th>";
+                    if($avgrating==0){
+                        //echo "<th><h5 id=\"rating\">No ratings. Be the first to rate this business.</h5></th>";
+                    }
+                    else{
+                        echo "<th><h5 id=\"rating\">Average User Rating: </h5></th>";
+                        echo "<th><h2 id=\"numrating\">".number_format($avgrating,1)."/10</h2></th>";
+                    }
+               echo" </tr>
+            </thead>
+        </table>
+        <br>
+        <table border=\"0\" cellpadding=\"5\" width=\"1100\">
+            <tbody>
+                <tr>
+                    <td><a href=\"gallery.php\"><img src=".$biz_info['img']." alt=\"\" width=150 height=\"150\"></a></td>
+                    <td id=\"businessdetails\">
+                        <ul style=\"list-style: none;\">
+                            <li>".$biz_info['street']."</li>
+                            <li>".$biz_info['city'].", ".$biz_info['state']."</li>
+                            <li>".$biz_info['phone']."</li>
+                            <li style=\"width:900px;\">".$biz_info['description']."</li> 
+                        </ul>
+                    </td>
+                </tr>
+            </tbody>
+        </table>";
+        if(isset($_SESSION['cust_id'])){
+        echo "<!-- Allow HTML form for writing a review-->
+        <form name=\"review\" method=\"POST\">
+            <h4>Write a Review:</h4>
+            <textarea name=\"reviewtext\" class=\"form-control\" id=\"reviewtext\"></textarea><br>
+            <h4>Choose a Rating:</h4>
+            <select name=\"ratebox\" id=\"ratebox\" class=\"form-control\">
+                <option value=\"1\">1</option>
+                <option value=\"2\">2</option>
+                <option value=\"3\">3</option>
+                <option value=\"4\">4</option>
+                <option value=\"5\">5</option>
+                <option value=\"6\">6</option>
+                <option value=\"7\">7</option>
+                <option value=\"8\">8</option>
+                <option value=\"9\">9</option>
+                <option value=\"10\">10</option>
+            </select>
+            <br>
+            <input type=\"submit\" value=\"Submit\" name=\"submit_review\" />
+        </form><br>";
+        }
+        else{
+            echo "<div style=\"font-weight:bold;\">Please <a href=\"login.php\">Login</a> to submit a review for this business.</div>";
+        }
+        
+        echo "<!-- Customer Reviews Begin here -->
+        <h3>Reviews From Other Users:</h3>";
+        $rq= "SELECT * FROM Review_Table WHERE biz_id='$biz_id'";
+        $r=mysql_query($rq);
+        if (!$r) {
+            ie("query failed" . mysql_error());
+        }
+        if (mysql_num_rows($r) == 0) {
+            echo "No one has submitted a review. Be the first!";
+        }
+        else{
+            echo "<table id=\"comments\" border=\"1\" width=\"1100\" cellpadding=\"5\">";
+            while($rev=mysql_fetch_array($r)){
+                $cust_id=$rev['cust_id'];
+                $custq= "SELECT * FROM Customer_Table WHERE cust_id='$cust_id'";
+                $custs=mysql_query($custq);
+                $cust=mysql_fetch_assoc($custs);
+                echo"<tr>
+                    <td class=\"username\"><center>".$cust['first_name'] . " ".$cust['last_name'] ."<br><img src=\"img/MaleSilhouette.jpg\" alt=\"BetterWork\" width=150 height=\"150\"></center></td>
+                    <td class=\"userreviews\"><h4>Rating: ".$rev['rating']."</h4>".$rev['review_description']."</td>
+                </tr>";
+            }
+            echo "</table>";
+        }
+    echo "</div>
+    </div>";
+?>
+    </body>
+</html>

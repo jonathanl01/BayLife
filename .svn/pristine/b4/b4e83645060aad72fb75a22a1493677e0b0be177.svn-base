@@ -1,0 +1,37 @@
+<html>
+
+    <body>
+
+        <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js">
+        </script>
+        <script>
+            $(document).ready(function() {
+                $("img").hide();
+                $("button").click(function() {
+                    $("img").toggle(500);
+                });
+            });
+        </script>
+
+        <h1>Vertical Prototype</h1>
+
+        <p>Testing out our amazon server for CSC 640</p>
+        <p>Box below should return something.</p>
+        <p>This will be the website I'm working on at school</p>
+        
+        <form method="get" action="write.php">
+            <input type="text" name="write" placeholder="Your Name Here"/>
+            <input type="submit" name="submitbutton" value="Submit"/>
+        </form>
+        
+        <form method="get" action="loginpage.php">
+            <input type="text" name="search" placeholder="Enter City" />
+            <input type="submit" name='searchbutton' value="Search" />
+        </form>
+        <button>Cat!</button>
+        <div>
+            <img src='https://lh5.googleusercontent.com/-6ejg37mAaFI/UFFXgocAYtI/AAAAAAAAADM/5niyWNZ7Atk/w422-h633-no/l8KV8.jpg'>
+        </div>
+    </body>
+
+</html>

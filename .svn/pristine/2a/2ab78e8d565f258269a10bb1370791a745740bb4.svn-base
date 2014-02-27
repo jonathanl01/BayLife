@@ -1,0 +1,147 @@
+<!--
+To change this template, choose Tools | Templates
+and open the template in the editor.
+-->
+<!DOCTYPE html>
+<head>
+    <style>
+        td
+        {
+            text-align: left;
+            vertical-align: top;
+        }
+        #businessheadingtable
+        {
+            height:30px;
+            width:1100px;
+        }
+        #businessname
+        {
+            text-align: left;
+        }
+        #rating
+        {
+            text-align: right;
+        }
+        #numrating
+        {
+            text-align: left;
+        }
+        #businessheading
+        {
+            font-size:xx-large;
+            vertical-align:bottom;
+        }
+        #businessdetails
+        {
+            padding: 0px;
+        }
+        #reviewtextbox
+        {
+            height:100px;
+            width:600px; 
+        }
+        #reviews
+        {
+        
+        }
+        .username{
+            width:150px;
+            vertical-align: top;
+            text-align: left;
+        }
+        .userreviews{
+            width:750px;
+            height:100px;
+            vertical-align: top;
+            text-align: left;
+        }
+    </style>
+        <title>Business Info Page</title>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        
+        <!--Include these two links for the navbar to work-->
+        <link rel="stylesheet" type="text/css" href="header.css" >
+        <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.2/css/bootstrap.min.css">
+    </head>
+    <body>
+        <!--Navbar-->
+        <div class="navbar navbar-default navbar-fixed-top">
+            <div class="container">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <a class="navbar-brand" href="#">BayLife</a>
+                </div>
+                <div class="collapse navbar-collapse">
+                    <form class="navbar-form navbar-left" role="search">
+                        <div class="form-group">
+                            <input type="text" class="form-control" placeholder="Search">
+                        </div>
+                        <div class="form-group">
+                            <input type="text" class="form-control" placeholder="Location">
+                        </div>
+                        <button type="submit" class="btn btn-default">Submit</button>
+                    </form>
+                </div>
+            </div>
+        </div><!--/.nav-collapse -->
+        <table id="businessheadingtable" border="0">
+            <thead id="businessheading">
+                <tr>
+                    <th id="businessname">Hotel California</th>
+                    <th id="rating" style="font-size:medium;">User Rating</th>
+                    <th id="numrating">7.8/10</th>
+                </tr>
+            </thead>
+        </table><br>
+        <table border="0" cellpadding="5" width="1100">
+            <tbody>
+                <tr>
+                    <td><a href="gallery.html"><img src="img/featured-cupcake.jpg" alt="BetterWork" width=150 height="150"></a></td>
+                    <td id="businessdetails">
+                        <ul style="list-style: none;">
+                            <li>1 Dark Desert Highway</li>
+                            <li>Los Angeles, CA</li>
+                            <li>(555) 555-5555</li>
+                            <li>A Scenic hotel located in Beautiful Los Angeles, California where you can enjoy front row seats to one the most beautiful cities in the the United States... And polluted. Never have to commute because everything you need is right outside our doors.</li>
+                        </ul>
+                    </td>
+                </tr>
+            </tbody>
+        </table><br>
+        <form name="review" action="login.html">
+            <p>Submit a Review:</p>
+            <input type="text" name="reviewtextbox" value="" id="reviewtextbox"/>
+            <br>Choose a Rating:
+            <select name="Rating" size="2" style="height:100px;">
+                <option>1</option>
+                <option>2</option>
+                <option>3</option>
+                <option>4</option>
+                <option>5</option>
+                <option>6</option>
+                <option>7</option>
+                <option>9</option>
+                <option>10</option>
+            </select><br><br>
+            <input type="submit" value="Submit"/>
+           
+        </form>
+        <br>
+        <h3>Reviews From Other Users:</h3>
+        <table id="comments" border="1" width="1100" cellpadding="5">
+            <tr>
+                    <td class="username"><center>Jessica Simpson<br><img src="img/Girlsilhouette.jpg" alt="BetterWork" width=150 height="150"></center></td>
+                    <td class="userreviews">Is this chicken, what I have, or is this fish? I know it's tuna, but it says 'Chicken... by the Sea'</td>
+            </tr>
+            <tr>
+                    <td class="username"><center>Damian<br><img src="img/MaleSilhouette.jpg" alt="BetterWork" width=150 height="150"></center></td>
+                    <td class="userreviews">Taylor Zimmermann, two for you. Glenn Coco? FOUR for you, Glenn Coco! You go, Glenn Coco. And uh... "Caddy" Heron. Do we have a "Caddy" Heron here? </td>
+            </tr>
+        </table>
+    </body>
+</html>

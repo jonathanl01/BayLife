@@ -1,0 +1,90 @@
+<!--
+To change this template, choose Tools | Templates
+and open the template in the editor.
+-->
+<!DOCTYPE html>
+    <head>
+        <title>Business Info Page</title>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        
+        <!--Include these two links for the navbar to work-->
+        <link rel="stylesheet" type="text/css" href="header.css" >
+        <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.2/css/bootstrap.min.css">
+        <link rel="stylesheet" type="text/css" href="business_page.css" >
+
+    </head>
+    <body>
+        <!-- include navbar-->
+       <?php
+       require_once('navbar.php');
+       ?>
+    
+    <!-- Business Information -->
+    <div class="entirebody container">
+        <table id="businessheadingtable" border="0">
+            <thead id="businessheading">
+                <tr>
+                    <th><h2 id="businessname">Hotel California</h2></th>
+                    <th><h5 id="rating">Average User Rating: </h5></th>
+                    <th><h2 id="numrating">7.8/10</h2></th>
+                </tr>
+            </thead>
+        </table>
+        <br>
+        <table border="0" cellpadding="5" width="1100">
+            <tbody>
+                <tr>
+                    <td><a href="gallery.php"><img src="img/HotelCa.jpg" alt="BetterWork" width=150 height="150"></a></td>
+                    <td id="businessdetails">
+                        <ul style="list-style: none;">
+                            <li>1 Dark Desert Highway</li>
+                            <li>Los Angeles, CA</li>
+                            <li>(555) 555-5555</li>
+                            <li>A Scenic hotel located in Beautiful Los Angeles, California where you can enjoy front row seats to one the most beautiful cities in the the United States... And polluted. Never have to commute because everything you need is right outside our doors.</li>
+                            
+                        </ul>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        
+        <!-- Allow HTML form for writing a review-->
+        <form name="review">
+            <h4>Write a Review:</h4>
+            <textarea name="reviewnum" class="form-control" id="reviewtextbox"></textarea><br>
+            <h4>Choose a Rating:</h4>
+            <select name="rating" id="reviewnum" class="form-control">
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5</option>
+                <option value="6">6</option>
+                <option value="7">7</option>
+                <option value="8">8</option>
+                <option value="9">9</option>
+                <option value="10">10</option>
+            </select>
+            <br>
+            <a href="login.php"><input type="button" value="Submit" action="login.php" /></a>
+        </form>
+        
+        <!-- Customer Reviews Begin here -->
+        <h3>Reviews From Other Users:</h3>
+        <table id="comments" border="1" width="1100" cellpadding="5">
+            <tr>
+                    <td class="username"><center>Jessica Simpson<br><img src="img/Girlsilhouette.jpg" alt="BetterWork" width=150 height="150"></center></td>
+                    <td class="userreviews"><h4>Rating: 4</h4>Is this chicken, what I have, or is this fish? I know it's tuna, but it says 'Chicken... by the Sea'</td>
+            </tr>
+            <tr>
+                    <td class="username"><center>Damian<br><img src="img/MaleSilhouette.jpg" alt="BetterWork" width=150 height="150"></center></td>
+                    <td class="userreviews"><h4>Rating: 10</h4>Taylor Zimmermann, two for you. Glenn Coco? FOUR for you, Glenn Coco! You go, Glenn Coco. And uh... "Caddy" Heron. Do we have a "Caddy" Heron here? </td>
+            </tr>
+            <tr>
+                    <td class="username"><center>Ke$ha<br><img src="img/Girlsilhouette.jpg" alt="BetterWork" width=150 height="150"></center></td>
+                    <td class="userreviews"><h4>Rating: 1</h4>Blah, blah, blah</td>
+            </tr>
+        </table>
+    </div>
+    </body>
+</html>

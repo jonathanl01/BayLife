@@ -1,0 +1,42 @@
+/* 
+    Document   : registration
+    Created on : Nov 15, 2013, 12:00:48 AM
+    Author     : Jianjun
+    Description:
+        Purpose of the stylesheet follows.
+*/
+
+.registration{
+    padding-top: 50px;
+    padding-left: 50px;
+    max-width: 600px;
+}
+.form-signup .form-signup-heading{
+    padding-bottom: 30px;
+}
+
+.form-signup p{
+    padding-bottom: 15px;
+
+}
+
+.form-signup .form-control{
+    float: right;
+    max-width: 400px;
+}
+
+.jumbotron {
+    position: relative;
+    bottom: 550px;
+    left: 800px;
+    text-align: center;
+    border-bottom: 1px solid #e5e5e5;
+    float: left;
+    max-height: 500px;
+    max-width: 500px;
+}
+.jumbotron .btn {
+    font-size: 21px;
+    padding: 14px 24px;
+}
+
